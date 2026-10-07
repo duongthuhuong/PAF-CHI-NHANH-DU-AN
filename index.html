@@ -48,9 +48,82 @@ footer{background:#081523;color:#d4dde5;padding:36px 0}.foot{display:flex;justif
 @media(max-width:760px){.system-ecosystem{grid-template-columns:1fr;grid-template-areas:"c" "a" "b" "d" "e" "f"}.eco-center{min-height:220px}}
 </style>
 
+
+<style>
+html{scroll-snap-type:y proximity}
+body{font-size:18px}
+nav{position:fixed;top:0;left:0;right:0;height:72px}
+body{padding-top:72px}
+.navin{min-height:72px}
+.links{display:none!important}
+.chapter-menu{
+ position:fixed;left:18px;top:92px;z-index:90;width:220px;
+ background:rgba(255,255,255,.97);border:1px solid var(--line);
+ border-radius:18px;padding:12px;box-shadow:0 14px 40px rgba(16,34,58,.10)
+}
+.chapter-menu h4{margin:4px 8px 10px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--g)}
+.chapter-menu a{display:block;padding:10px 12px;border-radius:10px;font-weight:800;font-size:14px;color:#4b5563}
+.chapter-menu a:hover,.chapter-menu a.active{background:#eaf7f0;color:var(--g)}
+.wrap{max-width:1280px;padding-left:250px;padding-right:42px}
+.hero .wrap{padding-left:250px}
+section,.hero{min-height:calc(100vh - 72px);scroll-snap-align:start;display:flex;align-items:center}
+section>.wrap{width:100%}
+.section-head{max-width:1050px;margin-bottom:34px}
+.section-head h2{font-size:clamp(42px,4.8vw,66px);line-height:1.08}
+.section-head p{font-size:22px;line-height:1.5;max-width:1050px}
+.card h3{font-size:23px}
+.card p,.small{font-size:17px;line-height:1.5}
+.kicker,.eyebrow{font-size:13px}
+.criteria .pct{font-size:58px}
+.figure figcaption{font-size:15px}
+.table-wrap td,.table-wrap th{font-size:17px}
+.process .pstep{padding:22px 14px}.process .pstep h3{font-size:18px}.process .pstep p{font-size:14px}
+.hero h1{font-size:clamp(54px,6vw,84px)}
+.hero p{font-size:23px;max-width:900px}
+.deadline-banner{
+ background:linear-gradient(135deg,#006838,#008430);
+ color:#fff;border-radius:22px;padding:28px 32px;margin-top:28px;
+ display:grid;grid-template-columns:1fr auto;gap:22px;align-items:center;
+ box-shadow:0 16px 45px rgba(0,104,56,.18)
+}
+.deadline-banner strong{display:block;font-size:34px;line-height:1.1;margin-bottom:8px}
+.deadline-banner p{margin:0;color:#eef9f3;font-size:19px}
+.deadline-date{font-size:34px;font-weight:900;background:#fff;color:#006838;padding:18px 22px;border-radius:16px;white-space:nowrap}
+.presentation-title{max-width:1000px}
+.culture-final{background:radial-gradient(circle at 85% 20%,rgba(0,166,81,.26),transparent 26%),linear-gradient(125deg,#081523,#16203A 56%,#006838 150%)}
+.culture-final .section-head h2{color:#fff;font-size:clamp(48px,5vw,72px)}
+.culture-final .section-head p{color:#e3ece8}
+.goal-banner{margin-top:28px;border:2px solid rgba(255,255,255,.25);border-radius:22px;padding:28px;text-align:center;background:rgba(255,255,255,.08)}
+.goal-banner strong{font-size:clamp(34px,4vw,56px);display:block;color:#fff}
+.goal-banner span{display:block;margin-top:10px;font-size:21px;color:#bfe8cf}
+@media(max-width:980px){
+ .chapter-menu{display:none}.wrap,.hero .wrap{padding-left:24px;padding-right:24px}
+ section,.hero{min-height:auto;display:block;padding:70px 0}
+ .section-head h2{font-size:38px}.section-head p{font-size:18px}
+ .deadline-banner{grid-template-columns:1fr}.deadline-date{font-size:26px;text-align:center}
+}
+</style>
+
 </head>
 <body>
 <nav><div class="wrap navin"><a class="brand" href="#top"><img src="pvep-logo.png" alt="PVEP"><b>PETROVIETNAM<br>PVEP</b></a><div class="links"><a href="#quan-diem">Quan điểm</a><a href="#cong-viec">Công việc</a><a href="#do-kho">Mức độ khó</a><a href="#tinh-diem">Cách tính</a><a href="#quy-trinh">Quy trình</a><a href="#1office">1Office</a></div></div></nav>
+
+<div class="chapter-menu">
+<h4>Danh mục</h4>
+<a href="#top">Mở đầu</a>
+<a href="#yeu-cau-tgd">Yêu cầu triển khai</a>
+<a href="#quan-diem">01 Quan điểm</a>
+<a href="#khung-danh-gia">02 Khung đánh giá</a>
+<a href="#cong-viec">03 Công việc</a>
+<a href="#do-kho">04 Mức độ khó</a>
+<a href="#tinh-diem">05 Cách tính</a>
+<a href="#nguyen-tac">06 Nguyên tắc</a>
+<a href="#quy-trinh">07 Quy trình</a>
+<a href="#1office">08 1Office</a>
+<a href="#gia-tri">09 Giá trị dữ liệu</a>
+<a href="#van-hoa">10 Văn hóa làm việc</a>
+</div>
+
 
 <header class="hero" id="top"><div class="wrap hero-grid"><div><div class="eyebrow">PVEP · Hướng dẫn triển khai tại Chi nhánh và Dự án</div><h1>Đánh giá mức độ hoàn thành công việc</h1><p>Tài liệu hướng dẫn thống nhất cách xác định công việc, giao việc, phân định mức độ khó, theo dõi thực hiện và đánh giá kết quả trên nền tảng số. Trọng tâm là quản trị theo mục tiêu, trách nhiệm và dữ liệu.</p><a class="btn" href="#quan-diem">Bắt đầu nội dung hướng dẫn</a></div>
     <div class="card" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16);padding:30px">
@@ -59,6 +132,25 @@ footer{background:#081523;color:#d4dde5;padding:36px 0}.foot{display:flex;justif
       <p style="margin:0;color:#dce8e4">Mỗi công việc được quản trị từ thời điểm giao đến khi hoàn thành. Kết quả đánh giá được hình thành từ dữ liệu thực hiện, không phải từ việc tổng hợp lại vào cuối kỳ.</p>
     </div></div></header>
 
+<section id="yeu-cau-tgd"><div class="wrap">
+<div class="section-head presentation-title">
+<div class="kicker">Yêu cầu triển khai đồng bộ tại Chi nhánh và Dự án</div>
+<h2>Hoàn thành chuẩn bị để thực thi từ ngày 01/01/2027</h2>
+<p>Các Chi nhánh và Dự án tổ chức triển khai thống nhất phương thức quản trị công việc và đánh giá MĐHTCV trên nền tảng số. Việc triển khai phải đồng bộ từ xác định mục tiêu, giao việc, phân định mức độ khó, cập nhật tiến độ, xác nhận kết quả đến tổng hợp đánh giá.</p>
+</div>
+<div class="deadline-banner">
+<div><strong>Yêu cầu của Tổng Giám đốc</strong>
+<p>Hoàn thành việc chuẩn hóa danh mục công việc, phân cấp giao việc, đầu mối thực hiện, dữ liệu trên hệ thống và hướng dẫn người sử dụng trước thời điểm áp dụng. Các đơn vị chịu trách nhiệm tổ chức triển khai thực chất, không thực hiện theo hình thức để bổ sung dữ liệu vào cuối kỳ.</p></div>
+<div class="deadline-date">Trước 01/01/2027</div>
+</div>
+<div class="grid g3" style="margin-top:22px">
+<div class="card"><div class="num">01</div><h3>Thống nhất cách làm</h3><p>Áp dụng cùng nguyên tắc xác định công việc, mức độ khó, thời hạn, đầu ra và căn cứ đánh giá trong toàn PVEP.</p></div>
+<div class="card"><div class="num">02</div><h3>Sẵn sàng dữ liệu và hệ thống</h3><p>Rà soát người dùng, phân quyền, đầu mối quản trị và các dữ liệu cần thiết để vận hành liên tục từ ngày áp dụng.</p></div>
+<div class="card"><div class="num">03</div><h3>Sẵn sàng tổ chức thực hiện</h3><p>Lãnh đạo đơn vị trực tiếp chỉ đạo, cấp quản lý thực hiện giao việc đúng chuẩn và người lao động cập nhật công việc trong quá trình thực hiện.</p></div>
+</div>
+</div></section>
+
+
 <section id="quan-diem"><div class="wrap"><div class="section-head"><div class="kicker">01 · Quan điểm và phương thức quản trị</div><h2>Quản trị theo mục tiêu, trách nhiệm và dữ liệu xuyên suốt quá trình thực hiện</h2><p>Đánh giá MĐHTCV được đặt trong tổng thể quản trị theo mục tiêu. Mục tiêu của tổ chức được cụ thể hóa thành công việc, xác định rõ người chịu trách nhiệm, thời hạn, sản phẩm đầu ra, mức độ khó và được theo dõi bằng dữ liệu trong suốt quá trình thực hiện.</p></div>
 <div class="grid g3"><div class="card"><div class="num">MỤC TIÊU</div><h3>Quản trị theo mục tiêu</h3><p>Công việc phải trả lời được đang đóng góp vào mục tiêu nào. Mục tiêu được cụ thể hóa đến đơn vị và cá nhân thay vì chỉ tồn tại ở cấp kế hoạch chung.</p></div><div class="card"><div class="num">GIÁ TRỊ</div><h3>Phân loại theo giá trị công việc</h3><p>Không coi mọi đầu việc có giá trị như nhau. Cấp giao việc, tính trọng tâm và mức độ khó giúp phản ánh khác biệt về giá trị đóng góp.</p></div><div class="card"><div class="num">DỮ LIỆU</div><h3>Đánh giá dựa trên bằng chứng</h3><p>Tiến độ, kết quả, thời điểm hoàn thành và đánh giá chất lượng được ghi nhận trên hệ thống để giảm phụ thuộc vào tổng hợp thủ công và cảm nhận cuối kỳ.</p></div></div>
 <figure class="figure"><img src="ppt-5.png" alt="So sánh quản trị truyền thống và quản trị số theo mục tiêu"><figcaption>Hình từ tài liệu đào tạo: chuyển từ theo dõi cuối kỳ, dữ liệu phân tán và đánh giá cảm tính sang quản trị thời gian thực, liên thông và dựa trên dữ liệu.</figcaption></figure>
@@ -66,7 +158,7 @@ footer{background:#081523;color:#d4dde5;padding:36px 0}.foot{display:flex;justif
 <figure class="figure"><img src="qtmt-slide-4.png" alt="5 nguyên tắc cốt lõi trong quản trị mục tiêu"><figcaption>5 nguyên tắc cốt lõi trong quản trị mục tiêu: mục tiêu cụ thể, thống nhất hai chiều, tự chủ và trách nhiệm, phản hồi và cải tiến, đo lường hiệu quả.</figcaption></figure>
 <div class="callout"><b>Quan điểm cần thống nhất khi triển khai:</b> hệ thống không khuyến khích tạo nhiều đầu việc để tăng điểm. Giá trị nằm ở việc xác định đúng nhiệm vụ, đúng mức độ đóng góp và hoàn thành đúng yêu cầu. Một công việc trọng tâm, có giá trị cao có thể quan trọng hơn nhiều công việc nhỏ.</div></div></section>
 
-<section class="dark"><div class="wrap"><div class="section-head"><div class="kicker">02 · Khung đánh giá</div><h2>Bốn tiêu chí, mỗi tiêu chí tối đa 25 điểm</h2><p>Bốn tiêu chí tạo thành góc nhìn toàn diện. Khối lượng trả lời đã hoàn thành bao nhiêu. Tiến độ trả lời hoàn thành khi nào. Chất lượng trả lời kết quả đạt đến mức nào. Tiêu chí thứ tư phản ánh phối hợp đối với tập thể và ý thức trách nhiệm đối với cá nhân.</p></div>
+<section id="khung-danh-gia" class="dark"><div class="wrap"><div class="section-head"><div class="kicker">02 · Khung đánh giá</div><h2>Bốn tiêu chí, mỗi tiêu chí tối đa 25 điểm</h2><p>Bốn tiêu chí tạo thành góc nhìn toàn diện. Khối lượng trả lời đã hoàn thành bao nhiêu. Tiến độ trả lời hoàn thành khi nào. Chất lượng trả lời kết quả đạt đến mức nào. Tiêu chí thứ tư phản ánh phối hợp đối với tập thể và ý thức trách nhiệm đối với cá nhân.</p></div>
 <figure class="figure"><img src="ppt-7.png" alt="Bốn tiêu chí đánh giá trọng tâm"></figure>
 <div class="grid g4 criteria"><div class="card"><div class="pct">25</div><h3>Khối lượng</h3><p>Không đo đơn thuần số việc. Điểm được hình thành từ tỷ lệ hoàn thành trong từng nhóm công việc và trọng số của nhóm đó.</p></div><div class="card"><div class="pct">25</div><h3>Tiến độ</h3><p>Dựa trên thời hạn giao và thời điểm hoàn thành thực tế. Công việc đúng hạn có hệ số tiến độ tối đa.</p></div><div class="card"><div class="pct">25</div><h3>Chất lượng</h3><p>Phản ánh độ chính xác, đầy đủ, mức đáp ứng yêu cầu và khả năng sử dụng của sản phẩm đầu ra.</p></div><div class="card"><div class="pct">25</div><h3>Phối hợp hoặc ý thức</h3><p>Tập thể được đánh giá về phối hợp. Cá nhân được đánh giá về ý thức, trách nhiệm và chấp hành quy định.</p></div></div></div></section>
 
@@ -92,14 +184,14 @@ footer{background:#081523;color:#d4dde5;padding:36px 0}.foot{display:flex;justif
 <figure class="figure"><img src="ppt-14.png" alt="Thang điểm xếp loại"><figcaption>Thang điểm xếp loại áp dụng cho tập thể và cá nhân trong tài liệu hướng dẫn.</figcaption></figure>
 <div class="table-wrap"><table><thead><tr><th>Xếp loại</th><th>Khoảng điểm</th><th>Cách hiểu</th></tr></thead><tbody><tr><td>Hoàn thành xuất sắc</td><td>90 đến 100</td><td>Kết quả ở mức cao nhất và đồng thời phải đáp ứng các điều kiện giới hạn xếp loại.</td></tr><tr><td>Hoàn thành tốt</td><td>80 đến dưới 90</td><td>Hoàn thành tốt các yêu cầu chính của kỳ đánh giá.</td></tr><tr><td>Hoàn thành</td><td>50 đến dưới 80</td><td>Đạt mức hoàn thành nhưng còn nội dung cần cải thiện.</td></tr><tr><td>Không hoàn thành</td><td>Dưới 50</td><td>Không đạt ngưỡng điểm hoặc thuộc trường hợp bị giới hạn theo quy định.</td></tr></tbody></table></div></div></section>
 
-<section class="dark"><div class="wrap"><div class="section-head"><div class="kicker">06 · Các nguyên tắc bổ sung</div><h2>Điểm số không phải điều kiện duy nhất quyết định xếp loại</h2><p>Một số tình huống tạo ra giới hạn xếp loại nhằm bảo đảm kết quả đánh giá phản ánh đúng trách nhiệm đối với các nhiệm vụ không hoàn thành và tính đầy đủ của dữ liệu.</p></div>
+<section id="nguyen-tac" class="dark"><div class="wrap"><div class="section-head"><div class="kicker">06 · Các nguyên tắc bổ sung</div><h2>Điểm số không phải điều kiện duy nhất quyết định xếp loại</h2><p>Một số tình huống tạo ra giới hạn xếp loại nhằm bảo đảm kết quả đánh giá phản ánh đúng trách nhiệm đối với các nhiệm vụ không hoàn thành và tính đầy đủ của dữ liệu.</p></div>
 <figure class="figure"><img src="qtmt-slide-10.png" alt="Quy tắc xử lý công việc không hoàn thành"><figcaption>Quy tắc giới hạn mức xếp loại khi có công việc không hoàn thành.</figcaption></figure>
 <div class="grid g3"><div class="card"><h3>Có 01 công việc KHT</h3><p>Xếp loại tối đa ở mức Hoàn thành tốt.</p></div><div class="card"><h3>Có từ 02 công việc KHT</h3><p>Xếp loại tối đa ở mức Hoàn thành.</p></div><div class="card"><h3>Công việc do Tổng Giám đốc đánh giá KHT</h3><p>Được quy đổi tương đương 02 công việc không hoàn thành trong tính toán giới hạn xếp loại.</p></div><div class="card"><h3>Tạo việc sau ngày cuối tháng</h3><p>Công việc được khởi tạo sau ngày cuối cùng của tháng đánh giá được loại khỏi công thức của kỳ đó.</p></div><div class="card"><h3>Không có việc trên hệ thống</h3><p>Được rà soát thực tế và xem xét ở mức Hoàn thành thấp nhất hoặc Không hoàn thành theo nguyên tắc áp dụng.</p></div><div class="card"><h3>Phạm vi việc KHT của cá nhân</h3><p>Xem xét công việc giao từ tất cả các cấp có thẩm quyền, không chỉ công việc do cấp quản lý trực tiếp giao.</p></div></div></div></section>
 
 <section id="quy-trinh"><div class="wrap"><div class="section-head"><div class="kicker">07 · Quy trình quản trị công việc</div><h2>Đánh giá bắt đầu từ lúc giao việc, không bắt đầu vào ngày chốt kỳ</h2><p>Dữ liệu được hình thành xuyên suốt vòng đời công việc. Khi giao việc thiếu đầu ra hoặc thời hạn, khi cập nhật không kịp thời hoặc khi đánh giá chất lượng không có căn cứ, sai lệch sẽ đi theo đến kết quả cuối kỳ.</p></div>
 
 <div class="process"><div class="pstep"><b>1</b><h3>Xác định mục tiêu</h3><p>Liên kết kế hoạch, chỉ tiêu, dự án hoặc chương trình</p></div><div class="pstep"><b>2</b><h3>Giao việc</h3><p>Người thực hiện, hạn, đầu ra, nguồn việc, mức độ khó</p></div><div class="pstep"><b>3</b><h3>Theo dõi</h3><p>Cập nhật tiến độ, vướng mắc và thay đổi trong quá trình thực hiện</p></div><div class="pstep"><b>4</b><h3>Hoàn thành</h3><p>Nộp sản phẩm và bằng chứng kết quả</p></div><div class="pstep"><b>5</b><h3>Đánh giá</h3><p>Xác nhận kết quả, chất lượng, tiến độ và trách nhiệm</p></div><div class="pstep"><b>6</b><h3>Tổng hợp</h3><p>Dashboard, báo cáo và dữ liệu phục vụ quyết định quản trị</p></div></div>
-<figure class="figure"><img src="qtmt-slide-7.png" alt="Chuỗi cung ứng thực thi và mô hình quản lý công việc PVEP"><figcaption>Mô hình quản lý công việc từ nguồn công việc, phân luồng và giao việc, thực hiện đến đánh giá tự động.</figcaption></figure>
+
 <h3 style="margin-top:30px">Thông tin tối thiểu khi giao việc</h3><div><span class="tag">Tên công việc</span><span class="tag">Nội dung và đầu ra</span><span class="tag">Người thực hiện</span><span class="tag">Người giao và đánh giá</span><span class="tag">Ngày bắt đầu</span><span class="tag">Hạn hoàn thành</span><span class="tag">Nguồn công việc</span><span class="tag">Mức độ khó 1 đến 5</span><span class="tag">Đơn vị phối hợp</span></div>
 <div class="notice"><b>Khi có thay đổi:</b> không sửa dữ liệu chỉ để làm đẹp kết quả. Cần ghi nhận lý do, bằng chứng và phê duyệt điều chỉnh khi có căn cứ khách quan. Với công việc kéo dài, nên chia mốc hoặc giai đoạn ngay từ đầu để theo dõi đúng tiến độ.</div></div></section>
 
@@ -109,7 +201,7 @@ footer{background:#081523;color:#d4dde5;padding:36px 0}.foot{display:flex;justif
 <figure class="figure"><img src="ppt-16.png" alt="Nền tảng số 1Office trung tâm chỉ huy dữ liệu"></figure>
 <div class="grid g3"><div class="card"><h3>Người giao việc</h3><p>Tạo công việc đủ thông tin, xác định mức độ khó và nhóm công việc phù hợp, theo dõi thực hiện, xử lý vướng mắc và đánh giá ngay khi có kết quả.</p></div><div class="card"><h3>Người thực hiện</h3><p>Xác nhận nhiệm vụ, cập nhật tiến độ và sản phẩm, phản hồi khi có thay đổi hoặc nguyên nhân khách quan, bảo đảm dữ liệu phản ánh đúng thực tế.</p></div><div class="card"><h3>Đầu mối quản trị</h3><p>Kiểm soát dữ liệu, rà soát bất thường, tổng hợp kết quả và sử dụng dashboard để nhận diện công việc chậm, thiếu dữ liệu hoặc cần xử lý.</p></div></div></div></section>
 
-<section><div class="wrap"><div class="section-head"><div class="kicker">09 · Giá trị sử dụng dữ liệu</div><h2>Từ đánh giá kết quả đến hỗ trợ điều hành và cải tiến quản trị</h2><p>Khi dữ liệu được cập nhật đầy đủ, hệ thống cho phép theo dõi xu hướng, khối lượng, thời gian xử lý, công việc quá hạn và các điểm nghẽn để hỗ trợ ra quyết định.</p></div>
+<section id="gia-tri"><div class="wrap"><div class="section-head"><div class="kicker">09 · Giá trị sử dụng dữ liệu</div><h2>Từ đánh giá kết quả đến hỗ trợ điều hành và cải tiến quản trị</h2><p>Khi dữ liệu được cập nhật đầy đủ, hệ thống cho phép theo dõi xu hướng, khối lượng, thời gian xử lý, công việc quá hạn và các điểm nghẽn để hỗ trợ ra quyết định.</p></div>
 <div class="grid g2"><figure class="figure"><img src="ppt-23.png" alt="Giá trị thực tiễn của hệ thống"></figure>
 <div class="system-ecosystem" aria-label="Các tính năng khác của hệ thống">
   <div class="eco-item"><span class="eco-icon">AI</span><h3>Chatbot AI</h3><p>Tích hợp trí tuệ nhân tạo hỗ trợ tương tác và truy xuất dữ liệu.</p></div>
@@ -124,7 +216,7 @@ footer{background:#081523;color:#d4dde5;padding:36px 0}.foot{display:flex;justif
 <figure class="figure"><img src="ppt-25.png" alt="Năm giá trị cốt lõi mang lại cho PVEP"></figure></div></section>
 
 
-<section id="van-hoa" class="dark"><div class="wrap">
+<section id="van-hoa" class="dark culture-final"><div class="wrap">
 <div class="section-head"><div class="kicker">10 · Thay đổi văn hóa làm việc</div>
 <h2>Thay đổi hệ thống đánh giá cũng là thay đổi cách chúng ta làm việc</h2>
 <p>Mục tiêu cuối cùng không chỉ là có một công thức đánh giá chính xác hơn. Quản trị công việc trên nền tảng số từng bước hình thành một văn hóa làm việc mới, trong đó mục tiêu, trách nhiệm, tiến độ và kết quả được làm rõ ngay từ đầu và được cập nhật trong suốt quá trình thực hiện.</p></div>
@@ -136,8 +228,25 @@ footer{background:#081523;color:#d4dde5;padding:36px 0}.foot{display:flex;justif
 <div class="card"><div class="num">TỪ BÁO CÁO THỦ CÔNG</div><h3>Đến dữ liệu hình thành ngay trong tác nghiệp</h3><p>Thông tin phục vụ dashboard và báo cáo quản trị được tạo ra từ hoạt động hằng ngày. Cập nhật hệ thống là một phần của công việc.</p></div>
 <div class="card"><div class="num">TỪ QUẢN LÝ CÔNG VIỆC</div><h3>Đến quản trị hiệu quả và cải tiến liên tục</h3><p>Dữ liệu tích lũy giúp nhận diện khối lượng, thời gian xử lý, công việc quá hạn, điểm nghẽn phối hợp và xu hướng thực hiện để tiếp tục cải tiến.</p></div>
 </div>
-<div class="callout" style="margin-top:24px"><b>Thông điệp triển khai:</b> 1Office không thay thế trách nhiệm quản lý. Hệ thống giúp trách nhiệm đó được thể hiện rõ hơn bằng mục tiêu, dữ liệu và kết quả. Khi cấp quản lý giao việc rõ, người thực hiện cập nhật đúng và việc đánh giá được thực hiện kịp thời, đánh giá MĐHTCV trở thành một phần của quản trị hằng ngày thay vì hoạt động chấm điểm cuối kỳ.</div>
+<div class="callout" style="margin-top:24px"><b>Thông điệp triển khai:</b> 1Office không thay thế trách nhiệm quản lý. Hệ thống giúp trách nhiệm được thể hiện rõ bằng mục tiêu, dữ liệu và kết quả. Khi cấp quản lý giao việc rõ, người thực hiện cập nhật đúng và đánh giá được thực hiện kịp thời, MĐHTCV trở thành một phần của quản trị hằng ngày.</div>
+<div class="goal-banner"><strong>Tất cả vì Mục tiêu chung</strong><span>Mỗi mục tiêu được chuyển thành công việc rõ ràng. Mỗi công việc gắn với trách nhiệm cụ thể. Mỗi kết quả được ghi nhận bằng dữ liệu. Từng cá nhân và từng đơn vị cùng hướng tới kết quả chung của PVEP.</span></div>
 </div></section>
 
 <footer><div class="wrap foot"><div class="brand"><img src="pvep-logo.png" alt="PVEP"><b style="color:#fff">TỔNG CÔNG TY THĂM DÒ KHAI THÁC DẦU KHÍ<br>Hướng dẫn đánh giá MĐHTCV</b></div><div>Ban Quản trị Nguồn nhân lực · 2026</div></div></footer>
+
+<script>
+const menuLinks=[...document.querySelectorAll('.chapter-menu a')];
+const sections=menuLinks.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+const io=new IntersectionObserver(entries=>{
+ entries.forEach(e=>{
+   if(e.isIntersecting){
+     menuLinks.forEach(a=>a.classList.remove('active'));
+     const a=menuLinks.find(x=>x.getAttribute('href')==='#'+e.target.id);
+     if(a)a.classList.add('active');
+   }
+ });
+},{rootMargin:'-30% 0px -60% 0px',threshold:0});
+sections.forEach(s=>io.observe(s));
+</script>
+
 </body></html>
