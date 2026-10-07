@@ -46,56 +46,172 @@ h1,h2,h3,p{margin-top:0}h1{font-size:clamp(48px,5.2vw,76px);line-height:1.02;let
 
 .processline{display:grid;grid-template-columns:1fr 70px 1fr;gap:20px;align-items:center;margin-top:28px}.processbox{border-radius:24px;padding:28px;background:#fff;border:1px solid var(--line);box-shadow:0 12px 30px rgba(20,35,50,.06)}.processbox.primary{background:linear-gradient(145deg,#202d63,#2E3192);color:#fff}.processbox.primary p{color:#e8ecf7}.arrowbig{font-size:56px;text-align:center;color:#00b7d9;font-weight:900}.pillrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}.pill{padding:8px 12px;border-radius:999px;background:#eaf7f8;color:#15556c;font-weight:800;font-size:14px}.dark .pill{background:rgba(255,255,255,.1);color:#fff}.matrixhead{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:22px}.matrixhead div{padding:13px;text-align:center;border-radius:12px;background:#e8f6ed;font-weight:900;color:#006838}.matrixrows{display:grid;gap:8px;margin-top:10px}.matrixrows div{padding:11px 15px;border-radius:11px;background:#fff;border:1px solid var(--line);font-size:16px;font-weight:750}.tree{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:25px}.tree .card{border-top:5px solid #00b7d9}.tree .if{font-size:13px;font-weight:900;color:#168ba0;text-transform:uppercase;letter-spacing:.08em}.tree .then{font-size:19px;font-weight:850;margin-top:10px;color:#16203A}.slide img.fullvisual{width:100%;max-height:68vh;object-fit:contain;border-radius:20px;background:#fff;border:1px solid var(--line)}
 </style>
+
+<style>
+:root{
+  --g:#008430;--g2:#00A651;--navy:#16203A;--ink:#172033;
+  --muted:#5d6878;--paper:#F7F8F6;--paper2:#FFFFFF;--line:#DCE5E0;
+  --soft:#EDF6F1;--soft2:#F2F5F7;--accent:#20B36A
+}
+body{background:#eef2ef}
+.slide,.slide.dark{
+  background:
+    radial-gradient(circle at 92% 8%,rgba(0,132,48,.055),transparent 24%),
+    linear-gradient(180deg,#FBFCFA 0%,#F5F7F5 100%);
+  color:var(--ink)
+}
+.slide.dark p,.dark .lead{color:var(--muted)}
+.slide.dark .card,.card{
+  background:rgba(255,255,255,.92);
+  border:1px solid var(--line);
+  color:var(--ink);
+  box-shadow:0 10px 28px rgba(22,32,58,.055)
+}
+.slide.dark .card p{color:var(--muted)}
+.dark .score{color:var(--g)}
+.kicker{color:var(--g)}
+.heroBox{border:1px solid #cfe1d7;background:#fff;color:var(--ink);box-shadow:0 14px 34px rgba(22,32,58,.06)}
+.heroBox p{color:var(--muted)!important}
+.goal{border:2px solid #cfe1d7;background:#fff}
+.goal strong{color:var(--g)}.goal p{color:var(--muted)!important}
+.processbox.primary{background:linear-gradient(145deg,#006838,#008430);color:#fff}
+.processbox.primary p{color:#eef8f2}
+.dark .pill{background:#eaf6ef;color:#006838}
+.top{box-shadow:0 4px 18px rgba(22,32,58,.04)}
+.menu{box-shadow:0 12px 32px rgba(22,32,58,.07)}
+.section-divider{height:4px;width:76px;border-radius:99px;background:linear-gradient(90deg,#006838,#20B36A);margin:0 0 18px}
+.quote{font-size:27px;line-height:1.32;font-weight:850;padding:22px 26px;border-radius:18px;background:#fff;border-left:6px solid var(--g);box-shadow:0 8px 24px rgba(22,32,58,.05)}
+.mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+.metric{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px}.metric b{font-size:34px;color:var(--g);display:block;margin-bottom:7px}.metric p{font-size:15px;line-height:1.42;color:var(--muted);margin:0}
+.compare{display:grid;grid-template-columns:1fr 56px 1fr;gap:16px;align-items:stretch;margin-top:24px}.compare .arrowbig{align-self:center}
+.end-slide{background:radial-gradient(circle at 80% 18%,rgba(32,179,106,.16),transparent 25%),linear-gradient(145deg,#f8fbf9,#edf6f1)!important}
+.end-slide h1{color:#006838}.end-slide .lead{color:#445468}
+@media(max-width:1000px){.mini-grid,.compare{grid-template-columns:1fr}.compare .arrowbig{transform:rotate(90deg)}}
+</style>
+
+
+<style>
+/* v14 visual language */
+:root{--cyan:#17A9C7;--blue:#2E3192;--green:#008430;--green2:#20B36A;--navy:#16203A;--cream:#F7F8F6}
+.viz-title{max-width:900px}
+.diagram{margin-top:22px}
+.flowline{display:grid;grid-template-columns:1fr 52px 1fr 52px 1fr 52px 1fr;align-items:center;gap:8px}
+.flow-node{min-height:170px;border-radius:24px;padding:24px;background:#fff;border:1px solid #dce5e0;box-shadow:0 12px 30px rgba(22,32,58,.07);position:relative;overflow:hidden}
+.flow-node:before{content:"";position:absolute;inset:0 auto 0 0;width:7px;background:linear-gradient(#008430,#20B36A)}
+.flow-node .ico{width:52px;height:52px;border-radius:15px;background:#e9f7ef;display:grid;place-items:center;font-size:26px;margin-bottom:15px}
+.flow-node h3{font-size:21px;margin-bottom:8px}.flow-node p{font-size:15px;line-height:1.4;color:#5d6878;margin:0}
+.chev{font-size:42px;color:#20B36A;text-align:center;font-weight:900}
+.source-map{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:18px;align-items:center;margin-top:22px}
+.source-col{display:grid;gap:12px}.source-item{background:#fff;border:1px solid #dce5e0;border-radius:16px;padding:16px 18px;font-weight:800;box-shadow:0 6px 20px rgba(22,32,58,.04)}
+.core{min-height:250px;border-radius:50%;aspect-ratio:1;max-width:270px;margin:auto;background:radial-gradient(circle at 35% 30%,#21b66e,#006838);color:#fff;display:grid;place-items:center;text-align:center;padding:30px;box-shadow:0 18px 45px rgba(0,132,48,.2)}
+.core strong{font-size:27px;line-height:1.1}.core small{display:block;margin-top:8px;font-size:14px}
+.difficulty-wheel{display:grid;grid-template-columns:1fr 330px 1fr;gap:20px;align-items:center;margin-top:20px}
+.factor-col{display:grid;gap:12px}.factor{background:#fff;border:1px solid #dce5e0;border-radius:15px;padding:14px 16px;display:flex;gap:12px;align-items:center;font-weight:800}.factor i{font-style:normal;min-width:36px;height:36px;border-radius:50%;background:#e9f7ef;color:#006838;display:grid;place-items:center}
+.wheel{width:310px;height:310px;border-radius:50%;margin:auto;background:conic-gradient(#006838 0 20%,#008f45 20% 40%,#00a651 40% 60%,#20b36a 60% 80%,#17a9c7 80% 100%);display:grid;place-items:center;box-shadow:0 18px 45px rgba(22,32,58,.12)}
+.wheel:after{content:"MỨC ĐỘ\A KHÓ\A 1 — 5";white-space:pre;width:190px;height:190px;border-radius:50%;background:#fff;display:grid;place-items:center;text-align:center;font-size:25px;line-height:1.15;font-weight:900;color:#16203A}
+.rings{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:20px}.ring-card{background:#fff;border:1px solid #dce5e0;border-radius:24px;padding:22px;display:grid;grid-template-columns:190px 1fr;align-items:center;gap:20px}
+.ring{width:170px;height:170px;border-radius:50%;display:grid;place-items:center;position:relative}.ring:after{content:"";position:absolute;width:105px;height:105px;border-radius:50%;background:#fff}.ring span{z-index:2;font-size:24px;font-weight:900;color:#16203A;text-align:center}
+.ring.collective{background:conic-gradient(#008430 0 80%,#20b36a 80% 90%,#17a9c7 90% 100%)}.ring.individual{background:conic-gradient(#008430 0 70%,#17a9c7 70% 100%)}
+.legend{display:grid;gap:8px}.legend div{font-size:15px;font-weight:750}.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px}
+.criteria-viz{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:24px}.criterion{background:#fff;border:1px solid #dce5e0;border-radius:22px;padding:22px;text-align:center;position:relative;overflow:hidden}.criterion:after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;background:linear-gradient(90deg,#008430,#17a9c7)}
+.criterion .icon{font-size:34px}.criterion .pct{font-size:44px;color:#008430;font-weight:900;line-height:1;margin:10px 0}.criterion p{font-size:14px;color:#5d6878}
+.decision{display:grid;grid-template-columns:1fr 60px 1fr;gap:16px;align-items:center;margin-top:22px}.decision-left{display:grid;gap:13px}.decision-card{background:#fff;border:1px solid #dce5e0;border-radius:17px;padding:16px 18px}.decision-card b{color:#006838}.decision-arrow{font-size:45px;text-align:center;color:#20B36A}.decision-result{background:linear-gradient(145deg,#16203A,#20365a);color:#fff;border-radius:24px;padding:25px}.decision-result p{color:#dce7ec}
+.timeline{display:grid;grid-template-columns:repeat(6,1fr);gap:0;margin-top:34px;position:relative}.timeline:before{content:"";position:absolute;left:8%;right:8%;top:30px;height:5px;background:linear-gradient(90deg,#008430,#17A9C7);border-radius:99px}.tstep{position:relative;text-align:center;padding:0 9px}.tstep .ball{width:60px;height:60px;margin:0 auto 15px;border-radius:50%;background:#fff;border:5px solid #008430;display:grid;place-items:center;font-weight:900;font-size:19px;position:relative;z-index:2}.tstep:nth-child(n+4) .ball{border-color:#17A9C7}.tstep h3{font-size:17px}.tstep p{font-size:13px;color:#5d6878}
+.culture-map{display:grid;grid-template-columns:1fr 90px 1fr;gap:18px;align-items:center;margin-top:22px}.old,.new{display:grid;gap:12px}.culture-item{padding:16px 18px;border-radius:16px;border:1px solid #dce5e0;background:#fff;font-weight:800}.new .culture-item{border-left:6px solid #008430}.transform{font-size:54px;color:#20B36A;text-align:center}
+@media(max-width:1000px){.flowline,.source-map,.difficulty-wheel,.rings,.ring-card,.criteria-viz,.decision,.timeline,.culture-map{grid-template-columns:1fr}.chev,.decision-arrow,.transform{transform:rotate(90deg)}.timeline:before{display:none}}
+</style>
+
 </head>
 <body>
 <header class="top"><div class="brand"><img src="pvep-logo.png" alt="PVEP"><b>PETROVIETNAM PVEP<br>Hướng dẫn ĐGMĐHTCV</b></div><div class="meta">Ban Quản trị Nguồn nhân lực · 2026</div></header>
 
-<nav class="menu">
-<h4>Danh mục trình chiếu</h4>
-<a data-go="0">Mở đầu</a>
-<a data-go="1">Yêu cầu triển khai</a>
-<a data-go="2">01 Quan điểm quản trị</a>
-<a data-go="3">02 Khung đánh giá</a>
-<a data-go="4">03 Công việc</a>
-<a data-go="5">04 Mức độ khó</a>
-<a data-go="6">04 Mức 1–5</a>
-<a data-go="7">05 Cách tính</a>
-<a data-go="8">05 Bốn tiêu chí</a>
-<a data-go="9">06 Kỷ luật dữ liệu</a>
-<a data-go="10">07 Quy trình</a>
-<a data-go="11">08 1Office</a>
-<a data-go="12">08 Dashboard</a>
-<a data-go="13">09 Giá trị dữ liệu</a>
-<a data-go="14">10 Văn hóa làm việc</a>
-<a data-go="15">Kết thúc</a>
-</nav>
+<nav class="menu"><h4>Danh mục trình chiếu</h4><a data-go="0">Mở đầu</a><a data-go="1">Yêu cầu triển khai</a><a data-go="2">Trách nhiệm triển khai</a><a data-go="3">01 Quan điểm</a><a data-go="4">01 Giao việc → Đánh giá</a><a data-go="5">02 Khung đánh giá</a><a data-go="6">02 Tập thể và cá nhân</a><a data-go="7">03 Xác định công việc</a><a data-go="8">03 Nguồn công việc</a><a data-go="9">04 Sáu yếu tố mức độ khó</a><a data-go="10">04 Năm mức độ khó</a><a data-go="11">05 Trọng số tính điểm</a><a data-go="12">05 Bốn tiêu chí</a><a data-go="13">05 Chất lượng và tiến độ</a><a data-go="14">05 Ý thức cá nhân</a><a data-go="15">06 Kỷ luật dữ liệu</a><a data-go="16">06 Nguyên tắc xếp loại</a><a data-go="17">07 Quy trình</a><a data-go="18">07 Vai trò thực hiện</a><a data-go="19">08 1Office</a><a data-go="20">08 Dashboard</a><a data-go="21">08 Hệ sinh thái số</a><a data-go="22">09 Giá trị dữ liệu</a><a data-go="23">10 Hành vi làm việc</a><a data-go="24">10 Văn hóa làm việc</a><a data-go="25">Kết thúc</a></nav>
 
 <main class="deck">
 <section class="slide dark active">
 <div class="hero"><div><div class="kicker">PVEP · Hướng dẫn triển khai tại Chi nhánh và Dự án</div><h1>Đánh giá mức độ hoàn thành công việc</h1><p class="lead">Thống nhất cách xác định công việc, giao việc, phân định mức độ khó, theo dõi thực hiện và đánh giá kết quả trên nền tảng số.</p></div><div class="heroBox"><div class="kicker">Trọng tâm</div><strong>Mục tiêu → Công việc → Trách nhiệm → Dữ liệu → Kết quả</strong><p style="margin:16px 0 0">Quản trị công việc được thực hiện xuyên suốt, không dồn dữ liệu vào thời điểm cuối kỳ.</p></div></div>
 </section>
 
+
+
+<section class="slide">
+<div class="kicker">06 · Kỷ luật dữ liệu</div><div class="section-divider"></div>
+<h2>Dữ liệu đúng thời điểm là điều kiện để đánh giá đúng</h2>
+<div class="decision">
+<div class="decision-left">
+<div class="decision-card"><b>Tạo việc sau ngày cuối kỳ?</b><br>Không đưa vào công thức của kỳ đã kết thúc.</div>
+<div class="decision-card"><b>Không có dữ liệu công việc?</b><br>Không đủ căn cứ ghi nhận đầy đủ mức độ hoàn thành.</div>
+<div class="decision-card"><b>Có công việc KHT?</b><br>Áp dụng giới hạn xếp loại theo nguyên tắc đã ban hành.</div>
+</div>
+<div class="decision-arrow">→</div>
+<div class="decision-result"><h3>KỶ LUẬT DỮ LIỆU</h3><p>Không hồi tố để làm đẹp kết quả. Không dồn cập nhật vào cuối kỳ. Điểm tổng không xóa ảnh hưởng của nhiệm vụ không hoàn thành.</p></div>
+</div>
+</section>
 <section class="slide">
 <div class="kicker">Yêu cầu triển khai đồng bộ tại Chi nhánh và Dự án</div><h2>Hoàn thành chuẩn bị để thực thi từ ngày 01/01/2027</h2><p class="lead">Các Chi nhánh và Dự án triển khai thống nhất phương thức quản trị công việc và đánh giá MĐHTCV, từ xác định mục tiêu đến tổng hợp kết quả.</p>
 <div class="deadline"><div><strong>Yêu cầu của Tổng Giám đốc</strong><p style="margin:8px 0 0;font-size:17px">Hoàn thành chuẩn hóa danh mục công việc, phân cấp giao việc, đầu mối thực hiện, dữ liệu hệ thống và hướng dẫn người sử dụng. Tổ chức triển khai thực chất, không bổ sung dữ liệu mang tính hình thức vào cuối kỳ.</p></div><div class="date">Trước 01/01/2027</div></div>
 <div class="grid g3"><div class="card"><div class="num">01</div><h3>Thống nhất cách làm</h3><p>Cùng nguyên tắc xác định công việc, mức độ khó, thời hạn, đầu ra và căn cứ đánh giá.</p></div><div class="card"><div class="num">02</div><h3>Sẵn sàng hệ thống</h3><p>Rà soát người dùng, phân quyền, đầu mối quản trị và dữ liệu cần thiết để vận hành.</p></div><div class="card"><div class="num">03</div><h3>Sẵn sàng tổ chức</h3><p>Lãnh đạo đơn vị chỉ đạo trực tiếp, cấp quản lý giao việc đúng chuẩn, NLĐ cập nhật trong quá trình thực hiện.</p></div></div>
 </section>
+<section class="slide">
+<div class="kicker">Yêu cầu triển khai · Trách nhiệm tổ chức thực hiện</div><div class="section-divider"></div>
+<h2>Đồng bộ cách làm trong toàn PVEP</h2>
+<p class="lead">Mục tiêu không phải chỉ là đưa dữ liệu lên hệ thống. Chi nhánh và Dự án cần hình thành cùng một cách quản trị công việc, từ lúc giao việc đến khi xác nhận kết quả.</p>
+<div class="mini-grid">
+<div class="metric"><b>01</b><h3>Lãnh đạo đơn vị</h3><p>Chỉ đạo triển khai, thống nhất nguyên tắc giao việc và chịu trách nhiệm về chất lượng vận hành tại đơn vị.</p></div>
+<div class="metric"><b>02</b><h3>Cấp quản lý</h3><p>Chuyển mục tiêu thành công việc cụ thể, xác định người thực hiện, đầu ra, thời hạn và mức độ khó.</p></div>
+<div class="metric"><b>03</b><h3>Người thực hiện</h3><p>Cập nhật tiến độ, kết quả và bằng chứng trong quá trình làm việc, không dồn cập nhật vào cuối kỳ.</p></div>
+</div>
+</section>
+
 
 <section class="slide">
 <div class="kicker">01 · Quan điểm và phương thức quản trị</div><h2>Giao việc là điểm khởi đầu, đánh giá là kết quả của quá trình quản trị</h2><p class="lead">Đánh giá MĐHTCV không tách rời quá trình quản trị công việc. Muốn đánh giá đúng, trước hết phải xác định đúng mục tiêu, giao việc rõ và theo dõi dữ liệu trong suốt quá trình thực hiện.</p>
 <div class="processline"><div class="processbox primary"><div class="num" style="color:#59e29a">KHÂU TIÊN QUYẾT</div><h3 style="font-size:30px">Giao việc và quản lý tiến độ</h3><p>Mục tiêu rõ → đúng người chịu trách nhiệm → thời hạn rõ → đầu ra rõ → mức độ khó phù hợp.</p><div class="pillrow"><span class="pill">Mục tiêu</span><span class="pill">Trách nhiệm</span><span class="pill">Thời hạn</span><span class="pill">Đầu ra</span></div></div><div class="arrowbig">→</div><div class="processbox"><div class="num">KẾT QUẢ</div><h3 style="font-size:30px">Đánh giá MĐHTCV</h3><p>Điểm số được hình thành từ dữ liệu về khối lượng, chất lượng, tiến độ và phối hợp hoặc ý thức trong quá trình thực hiện.</p><div class="pillrow"><span class="pill">Dữ liệu</span><span class="pill">Bằng chứng</span><span class="pill">Kết quả</span></div></div></div>
 </section>
 
-<section class="slide dark">
-<div class="kicker">02 · Khung đánh giá</div><h2>Bốn tiêu chí, mỗi tiêu chí tối đa 25 điểm</h2><p class="lead">Bốn góc nhìn giúp đánh giá toàn diện kết quả thực hiện công việc.</p>
-<div class="big4"><div class="card"><div class="score">25</div><h3>Khối lượng</h3><p>Đã hoàn thành bao nhiêu trong từng nhóm công việc.</p></div><div class="card"><div class="score">25</div><h3>Tiến độ</h3><p>Hoàn thành khi nào so với thời hạn được giao.</p></div><div class="card"><div class="score">25</div><h3>Chất lượng</h3><p>Kết quả đáp ứng yêu cầu đến mức nào.</p></div><div class="card"><div class="score">25</div><h3>Phối hợp hoặc ý thức</h3><p>Phối hợp đối với tập thể, ý thức trách nhiệm đối với cá nhân.</p></div></div>
+
+<section class="slide">
+<div class="kicker">02 · Khung đánh giá</div><div class="section-divider"></div>
+<h2>Bốn góc nhìn tạo thành một kết quả đánh giá toàn diện</h2>
+<div class="criteria-viz">
+<div class="criterion"><div class="icon">▦</div><div class="pct">25</div><h3>Khối lượng</h3><p>Đã hoàn thành bao nhiêu trong từng nhóm công việc.</p></div>
+<div class="criterion"><div class="icon">◷</div><div class="pct">25</div><h3>Tiến độ</h3><p>Hoàn thành khi nào so với thời hạn được giao.</p></div>
+<div class="criterion"><div class="icon">◆</div><div class="pct">25</div><h3>Chất lượng</h3><p>Kết quả đáp ứng yêu cầu đến mức nào.</p></div>
+<div class="criterion"><div class="icon">↔</div><div class="pct">25</div><h3>Phối hợp / Ý thức</h3><p>Tập thể nhìn vào phối hợp. Cá nhân nhìn vào ý thức và trách nhiệm.</p></div>
+</div>
 </section>
+<section class="slide">
+<div class="kicker">02 · Khung đánh giá</div><div class="section-divider"></div>
+<h2>Cùng bốn tiêu chí, nhưng tiêu chí thứ tư phản ánh hai góc nhìn khác nhau</h2>
+<div class="grid g2" style="margin-top:26px">
+<div class="card"><div class="num">TẬP THỂ</div><h3>Phối hợp</h3><p>Phản ánh mức độ chủ động phối hợp, trao đổi thông tin, hỗ trợ và xử lý công việc giữa các đơn vị.</p></div>
+<div class="card"><div class="num">CÁ NHÂN</div><h3>Ý thức và trách nhiệm</h3><p>Phản ánh tính chủ động, tinh thần trách nhiệm, chấp hành và cách phối hợp trong quá trình thực hiện nhiệm vụ.</p></div>
+</div>
+<div class="definition" style="font-size:23px">Khối lượng cho biết đã làm được bao nhiêu. Tiến độ cho biết hoàn thành khi nào. Chất lượng cho biết kết quả đạt đến mức nào. Tiêu chí thứ tư phản ánh cách thức tổ chức và thực hiện công việc.</div>
+</section>
+
 
 <section class="slide">
 <div class="kicker">03 · Xác định công việc</div><h2>Công việc là đơn vị tính điểm cơ bản</h2><div class="definition">Công việc phải gắn với mục tiêu cụ thể, có thời hạn và kết quả đầu ra rõ ràng.</div>
 <div class="grid g3"><div class="card"><h3>Công việc lớn</h3><p>Có thể chia thành các giai đoạn độc lập khi mỗi giai đoạn có sản phẩm, mốc thời gian và trách nhiệm rõ.</p></div><div class="card"><h3>Công việc phát sinh</h3><p>Ghi nhận khi phát sinh thực tế ngoài kế hoạch và có đủ căn cứ về nội dung, thời hạn, đầu ra.</p></div><div class="card"><h3>Văn bản đến</h3><p>Chỉ là công việc khi tạo ra yêu cầu phải thực hiện hành động hoặc sản phẩm cụ thể.</p></div></div>
 <p class="note"><b>Trước khi tạo việc:</b> xác định nguồn việc, người chịu trách nhiệm chính, sản phẩm cần bàn giao, hạn hoàn thành, mức độ khó dự kiến và đầu mối phối hợp.</p>
 </section>
+
+<section class="slide">
+<div class="kicker">03 · Nguồn công việc</div><div class="section-divider"></div>
+<h2>Công việc không được tạo tùy ý, mà hình thành từ các nguồn quản trị rõ ràng</h2>
+<div class="source-map">
+<div class="source-col">
+<div class="source-item">01 · Kế hoạch SXKD</div><div class="source-item">02 · Nhiệm vụ trọng tâm</div>
+</div>
+<div class="core"><div><strong>NGUỒN<br>CÔNG VIỆC</strong><small>Chuyển thành nhiệm vụ có đầu ra và trách nhiệm</small></div></div>
+<div class="source-col">
+<div class="source-item">03 · Chỉ đạo và giao việc</div><div class="source-item">04 · Văn bản cần xử lý</div><div class="source-item">05 · Đề xuất cải tiến</div>
+</div>
+</div>
+<div class="quote" style="margin-top:18px">Không tạo việc để tăng số lượng đầu việc. Công việc phải tạo ra giá trị hoặc kết quả cụ thể.</div>
+</section>
+
 
 <section class="slide dark">
 <div class="kicker">04 · Phân định mức độ khó</div><h2>Mức độ khó phản ánh giá trị, tính chất và yêu cầu của công việc</h2><p class="lead">Xác định từ mức 1 đến mức 5 trên cơ sở xem xét tổng thể 6 yếu tố. Không suy ra mức độ khó chỉ từ thời gian làm việc, số người tham gia hoặc độ dài tài liệu.</p>
@@ -108,16 +224,41 @@ h1,h2,h3,p{margin-top:0}h1{font-size:clamp(48px,5.2vw,76px);line-height:1.02;let
 <div class="definition" style="font-size:22px;margin-top:24px">Nguyên tắc: đánh giá tổng thể 6 yếu tố, không dùng một tiêu chí riêng lẻ để suy ra mức độ khó.</div>
 </section>
 
+
 <section class="slide">
-<div class="kicker">05 · Cách tính</div><h2>Trọng số phản ánh nhóm công việc và cấp độ đóng góp</h2>
-<div class="formulas"><div class="card"><div class="num">TẬP THỂ</div><h3>Cơ cấu 80 · 10 · 10</h3><p>80% công việc thường xuyên, kế hoạch và trọng tâm. 10% công việc Lãnh đạo Tổng công ty giao. 10% công việc trọng điểm.</p><div class="formula">25 × (HT 80% × 0,8 + HT 10% × 0,1 + HT trọng điểm × 0,1)</div></div><div class="card"><div class="num">CÁ NHÂN</div><h3>Cơ cấu 70 · 30</h3><p>70% công việc thường xuyên và trọng tâm. 30% công việc dự án, chỉ đạo của Lãnh đạo Tổng công ty và công việc trọng điểm.</p><div class="formula">25 × (HT 70% × 0,7 + HT 30% × 0,3)</div></div></div>
-<div class="definition" style="font-size:21px">Phân đúng nhóm công việc ngay từ khi giao là điều kiện để điểm khối lượng phản ánh đúng kết quả.</div>
+<div class="kicker">05 · Cách tính</div><div class="section-divider"></div>
+<h2>Trọng số phản ánh cơ cấu và giá trị của nhóm công việc</h2>
+<div class="rings">
+<div class="ring-card"><div class="ring collective"><span>TẬP THỂ<br>80·10·10</span></div><div class="legend"><h3>Tập thể</h3><div><span class="dot" style="background:#008430"></span>80% công việc thường xuyên, kế hoạch, trọng tâm</div><div><span class="dot" style="background:#20b36a"></span>10% Lãnh đạo Tổng công ty giao</div><div><span class="dot" style="background:#17a9c7"></span>10% công việc trọng điểm</div></div></div>
+<div class="ring-card"><div class="ring individual"><span>CÁ NHÂN<br>70·30</span></div><div class="legend"><h3>Cá nhân</h3><div><span class="dot" style="background:#008430"></span>70% công việc thường xuyên và trọng tâm</div><div><span class="dot" style="background:#17a9c7"></span>30% dự án, chỉ đạo và công việc trọng điểm</div></div></div>
+</div>
 </section>
 
 <section class="slide dark">
 <div class="kicker">05 · Cách hiểu bốn tiêu chí</div><h2>Điểm được hình thành từ dữ liệu thực hiện</h2>
 <div class="grid g2"><div class="card"><h3>Khối lượng</h3><p>Tính tỷ lệ hoàn thành trong từng nhóm trước khi nhân trọng số. Không cộng tất cả đầu việc để tính một tỷ lệ chung.</p></div><div class="card"><h3>Chất lượng</h3><p>Dựa trên sản phẩm thực tế, yêu cầu ban đầu, độ chính xác, đầy đủ và khả năng sử dụng.</p></div><div class="card"><h3>Tiến độ</h3><p>Đúng hoặc sớm hạn có hệ số bằng 1. Khi chậm hạn, hệ số giảm theo số ngày chậm và tổng thời gian kế hoạch.</p><div class="formula">HSTĐ = 1 − ngày chậm ÷ tổng ngày kế hoạch</div></div><div class="card"><h3>Phối hợp và ý thức</h3><p>Tập thể phản ánh chất lượng phối hợp. Cá nhân phản ánh ý thức, trách nhiệm, chủ động và chấp hành.</p></div></div>
 </section>
+<section class="slide">
+<div class="kicker">05 · Cách tính</div><div class="section-divider"></div>
+<h2>Chất lượng và tiến độ phải được hiểu độc lập</h2>
+<div class="grid g2" style="margin-top:24px">
+<div class="card"><div class="num">CHẤT LƯỢNG</div><h3>Đánh giá kết quả đầu ra</h3><p>Xem xét độ chính xác, đầy đủ, mức đáp ứng yêu cầu và khả năng sử dụng thực tế. Không dùng tốc độ hoặc số lượng để thay thế chất lượng.</p><div class="formula">Mức 1 → 5, quy đổi về tối đa 25 điểm</div></div>
+<div class="card"><div class="num">TIẾN ĐỘ</div><h3>Đánh giá theo thời hạn</h3><p>Đúng hoặc sớm hạn có hệ số 1. Khi chậm hạn, hệ số giảm theo số ngày chậm so với tổng thời gian kế hoạch.</p><div class="formula">HSTĐ = 1 − ngày chậm ÷ tổng ngày kế hoạch</div></div>
+</div>
+<div class="note"><b>Trường hợp khách quan:</b> người thực hiện bổ sung lý do và bằng chứng để cấp quản lý xem xét điều chỉnh thời hạn hoặc không trừ tiến độ.</div>
+</section>
+
+<section class="slide">
+<div class="kicker">05 · Tiêu chí ý thức đối với cá nhân</div><div class="section-divider"></div>
+<h2>Ý thức bắt đầu từ 25 điểm và giảm khi có vi phạm</h2>
+<div class="grid g3" style="margin-top:24px">
+<div class="card"><h3>Chủ động và trách nhiệm</h3><p>Tránh né, đùn đẩy, làm việc qua loa hoặc thiếu phối hợp làm ảnh hưởng tiến độ và chất lượng là căn cứ xem xét trừ điểm.</p></div>
+<div class="card"><h3>Chấp hành thời gian và chế độ làm việc</h3><p>Đi muộn, về sớm, rời vị trí hoặc nghỉ không đúng quy định được xử lý theo số lần vi phạm trong kỳ.</p></div>
+<div class="card"><h3>Vi phạm nghiêm trọng</h3><p>Trường hợp nghiêm trọng hoặc không chấp hành chế độ làm việc có thể dẫn tới điểm ý thức bằng 0.</p></div>
+</div>
+<div class="definition" style="font-size:22px">Khi điểm ý thức bằng 0, cá nhân được xác định KHT theo nguyên tắc áp dụng.</div>
+</section>
+
 
 <section class="slide">
 <div class="kicker">06 · Kỷ luật dữ liệu và nguyên tắc áp dụng</div><h2>Dữ liệu phải phản ánh đúng quá trình thực hiện</h2><p class="lead">Điểm số không phải điều kiện duy nhất quyết định xếp loại. Hệ thống đồng thời áp dụng các nguyên tắc để bảo đảm dữ liệu và kết quả đánh giá có ý nghĩa quản trị.</p>
@@ -136,6 +277,19 @@ h1,h2,h3,p{margin-top:0}h1{font-size:clamp(48px,5.2vw,76px);line-height:1.02;let
 <section class="slide">
 <div class="visual"><div class="copy"><div class="kicker">08 · Dashboard và giao diện tác nghiệp</div><h2>Dữ liệu công việc phục vụ điều hành</h2><p>Dashboard giúp cấp quản lý theo dõi khối lượng, trạng thái, tiến độ và các công việc cần xử lý. Giao diện tác nghiệp là nơi dữ liệu được hình thành hằng ngày.</p><div class="definition" style="font-size:20px">Cập nhật hệ thống là một phần của công việc, không phải thủ tục bổ sung sau khi công việc đã hoàn thành.</div></div><div><img src="ppt-20.png" alt="Dashboard" style="margin-bottom:12px"><img src="ppt-21.png" alt="Giao diện quản lý công việc"></div></div>
 </section>
+<section class="slide">
+<div class="kicker">08 · Hệ sinh thái quản trị số</div><div class="section-divider"></div>
+<h2>ĐGMĐHTCV là một phần của hệ thống quản trị số PVEP</h2>
+<div class="grid g3" style="margin-top:22px">
+<div class="card"><div class="num">AI</div><h3>Chatbot AI</h3><p>Hỗ trợ tương tác và truy xuất dữ liệu.</p></div>
+<div class="card"><div class="num">NS</div><h3>Dữ liệu nhân sự và lịch biểu</h3><p>Hỗ trợ quản trị nguồn lực và thời gian.</p></div>
+<div class="card"><div class="num">TCCD</div><h3>Chức danh và năng lực</h3><p>Số hóa quản lý TCCD và đánh giá năng lực.</p></div>
+<div class="card"><div class="num">VB</div><h3>Thư viện văn bản nội bộ</h3><p>Lưu trữ và tra cứu văn bản tập trung.</p></div>
+<div class="card"><div class="num">QLVB</div><h3>Quản lý văn bản</h3><p>Luân chuyển và phê duyệt văn bản điện tử.</p></div>
+<div class="card"><div class="score" style="font-size:48px">66</div><h3>Quy trình số hóa</h3><p>Các quy trình được vận hành trên cùng hệ sinh thái quản trị.</p></div>
+</div>
+</section>
+
 
 <section class="slide">
 <div class="kicker">09 · Giá trị sử dụng dữ liệu</div><h2>Từ đánh giá kết quả đến hỗ trợ điều hành và cải tiến</h2><p class="lead">Khi dữ liệu được cập nhật đầy đủ, hệ thống giúp nhận diện xu hướng, thời gian xử lý, công việc quá hạn và điểm nghẽn phối hợp.</p>
@@ -147,8 +301,8 @@ h1,h2,h3,p{margin-top:0}h1{font-size:clamp(48px,5.2vw,76px);line-height:1.02;let
 <div class="culture"><div class="card"><div class="num">TỪ TRAO ĐỔI</div><h3>Đến giao việc rõ mục tiêu và đầu ra</h3><p>Trách nhiệm được xác định ngay từ đầu.</p></div><div class="card"><div class="num">TỪ CUỐI KỲ</div><h3>Đến quản trị trong thời gian thực</h3><p>Vướng mắc được nhìn thấy và xử lý kịp thời.</p></div><div class="card"><div class="num">TỪ CẢM NHẬN</div><h3>Đến dữ liệu và bằng chứng</h3><p>Kết quả gắn với sản phẩm, tiến độ và chất lượng thực tế.</p></div><div class="card"><div class="num">TỪ PHẦN VIỆC RIÊNG</div><h3>Đến phối hợp vì mục tiêu chung</h3><p>Giá trị nằm ở đóng góp vào kết quả chung.</p></div><div class="card"><div class="num">TỪ BÁO CÁO</div><h3>Đến dữ liệu hình thành trong tác nghiệp</h3><p>Cập nhật hệ thống trở thành một phần của công việc.</p></div><div class="card"><div class="num">TỪ QUẢN LÝ</div><h3>Đến cải tiến liên tục</h3><p>Dữ liệu giúp tổ chức học hỏi và nâng cao hiệu quả.</p></div></div>
 </section>
 
-<section class="slide dark">
-<div style="height:100%;display:grid;place-items:center;text-align:center"><div><div class="kicker">Thông điệp kết thúc</div><h1>Tất cả vì Mục tiêu chung</h1><p class="lead" style="margin:0 auto;color:#d9e3e7">Mỗi mục tiêu được chuyển thành công việc rõ ràng. Mỗi công việc gắn với trách nhiệm cụ thể. Mỗi kết quả được ghi nhận bằng dữ liệu. Chủ động trong thực hiện, minh bạch trong phối hợp, trách nhiệm với kết quả. Từng cá nhân và từng đơn vị cùng hướng tới kết quả chung của PVEP.</p><div class="goal"><strong>Mục tiêu chung · Trách nhiệm rõ · Dữ liệu thật · Kết quả thực</strong></div></div></div>
+<section class="slide end-slide">
+<div style="height:100%;display:grid;place-items:center;text-align:center"><div><div class="kicker">Thông điệp kết thúc</div><h1>Tất cả vì Mục tiêu chung</h1><p class="lead" style="margin:0 auto">Mỗi mục tiêu được chuyển thành công việc rõ ràng. Mỗi công việc gắn với trách nhiệm cụ thể. Mỗi kết quả được ghi nhận bằng dữ liệu. Chủ động trong thực hiện, minh bạch trong phối hợp, trách nhiệm với kết quả. Từng cá nhân và từng đơn vị cùng hướng tới kết quả chung của PVEP.</p><div class="goal"><strong>Mục tiêu chung · Trách nhiệm rõ · Dữ liệu thật · Kết quả thực</strong></div></div></div>
 </section>
 </main>
 
