@@ -250,6 +250,53 @@ h3{font-size:24px;line-height:1.15}
 .slide .cultureCol:not(.new) .cultureItem{border-left:5px solid #D8A394 !important;}
 .slide .culture .transform{align-self:center;justify-self:center;font-size:42px !important;}
 @media(max-width:1000px){.slide .culture{grid-template-columns:1fr !important}.slide .culture .transform{transform:rotate(90deg)}}
+
+/* Mobile landscape presentation: one slide per screen, navigation stays usable. */
+@media (max-width: 1000px) and (orientation: landscape) and (max-height: 650px) {
+ html,body{width:100%;height:100%;overflow:hidden!important}
+ .top{position:fixed!important;top:0;left:0;right:0;height:36px!important;padding:0 14px!important;z-index:110}
+ .top .brand{transform:scale(.74);transform-origin:left center}
+ .top .meta{display:none}
+ .menu{display:none!important}
+ .deck{height:100dvh!important;padding:0!important}
+ .slide{display:block!important;position:absolute!important;top:36px!important;left:0!important;right:0!important;bottom:42px!important;inset:36px 0 42px!important;height:auto!important;min-height:0!important;overflow-y:auto!important;overflow-x:hidden!important;overscroll-behavior:contain;padding:14px 22px 18px!important;opacity:0!important;visibility:hidden!important;pointer-events:none!important;transform:none!important;transition:opacity .2s ease!important}
+ .slide.active{opacity:1!important;visibility:visible!important;pointer-events:auto!important}
+ .slide:after{display:none}
+ .controls{display:flex!important;position:fixed!important;bottom:0!important;height:42px!important;padding:0 12px!important;gap:10px!important;z-index:120}
+ .controls button{padding:6px 13px!important;font-size:12px!important}
+ .controls .progress{flex:1;min-width:30px}
+ h1{font-size:clamp(27px,4.3vw,40px)!important;line-height:1.1!important;margin-bottom:8px!important}
+ h2{font-size:clamp(23px,3.8vw,34px)!important;line-height:1.1!important;margin-bottom:8px!important}
+ h3{font-size:clamp(15px,2.3vw,21px)!important}
+ .kicker{font-size:10px!important;margin-bottom:5px!important}
+ .accentline{height:3px!important;margin-bottom:9px!important}
+ .lead{font-size:clamp(13px,1.9vw,17px)!important}
+ .slide p,.slide li{font-size:clamp(12px,1.65vw,16px);line-height:1.35}
+ .hero,.pillars,.cascade,.bottlenecks,.ba,.principles,.workdef,.source,.diff,.levels,.criteria,.compare,.rings,.ladder,.rules,.visual,.transformGrid,.culture,.g2,.g3,.g4,.heroGrid,.flow,.wheelGrid,.decision,.timeline,.roles,.ecosystem{grid-template-columns:revert-layer}
+ .rings{display:grid!important;grid-template-columns:1fr 1fr!important;gap:12px!important}
+ .ringCard{display:grid!important;grid-template-columns:minmax(120px,42%) 1fr!important;gap:8px!important;padding:10px!important}
+ .ring{width:min(100%,170px)!important;max-width:170px!important;height:auto!important;aspect-ratio:1}
+ .ringCard .legend{font-size:12px!important}
+ .slide .culture{grid-template-columns:minmax(0,1fr) 32px minmax(0,1fr)!important;gap:8px!important}
+ .slide .cultureCol{grid-template-rows:repeat(4,minmax(40px,auto))!important;gap:6px!important}
+ .slide .cultureCol .cultureItem{padding:7px 9px!important;font-size:clamp(11px,1.55vw,15px)!important;line-height:1.25!important}
+ .slide .culture .transform{transform:none!important;font-size:25px!important}
+ .delegate-layout{display:grid!important;grid-template-columns:1.16fr 1fr!important;height:auto!important;gap:8px!important}
+ .delegate-chart svg,.delegate-pyramid svg{max-height:calc(100dvh - 160px)!important}
+ .delegate-note{font-size:11px!important;padding:5px 8px!important}
+ .delegate-step-hint{display:block!important;font-size:11px!important}
+ .animated-delegation .reveal-tier{opacity:0;transform:translateY(10px)}
+ .animated-delegation[data-step="1"] .reveal-tier[data-tier="1"],.animated-delegation[data-step="2"] .reveal-tier[data-tier="1"],.animated-delegation[data-step="2"] .reveal-tier[data-tier="2"],.animated-delegation[data-step="3"] .reveal-tier{opacity:1;transform:none}
+ .slide.pafExactClosing{min-height:0!important;padding:15px!important}
+ .slide.pafExactClosing h1,.slide.pafExactClosing h2{font-size:clamp(28px,5vw,48px)!important}
+ .card,.node,.role,.stage,.t{min-height:0!important;padding:12px!important}
+ .visual img{max-height:45dvh!important}
+}
+@media (max-width: 850px) and (orientation: portrait){
+ .slide{display:block;visibility:visible}
+ .ringCard{grid-template-columns:minmax(0,1fr)!important}
+ .ring{max-width:240px;margin:auto}
+}
 </style></head>
 <body>
 <header class="top"><div class="brand"><img src="pvep-logo.png"/><b>PETROVIETNAM PVEP<br/>Hướng dẫn ĐGMĐHTCV</b></div><div class="meta">Ban Quản trị Nguồn nhân lực · 2026</div></header>
@@ -289,4 +336,4 @@ h3{font-size:24px;line-height:1.15}
 </div>
 </section><section class="slide"><div class="kicker">10 · Văn hóa làm việc</div><div class="accentline"></div><h2>Từ cách làm cũ đến văn hóa quản trị theo mục tiêu</h2><div class="culture"><div class="cultureCol"><div class="cultureItem">Giao việc qua trao đổi rời rạc</div><div class="cultureItem">Theo dõi bằng nhắc việc</div><div class="cultureItem">Cuối kỳ mới tổng hợp</div><div class="cultureItem">Đánh giá nhiều theo cảm nhận</div></div><div class="transform">→</div><div class="cultureCol new"><div class="cultureItem">Mục tiêu và đầu ra rõ ngay từ đầu</div><div class="cultureItem">Tiến độ được cập nhật trong tác nghiệp</div><div class="cultureItem">Dữ liệu hình thành liên tục</div><div class="cultureItem">Đánh giá dựa trên kết quả và bằng chứng</div></div></div></section><section class="slide"><div class="kicker">10 · Văn hóa làm việc</div><div class="accentline"></div><h2>Văn hóa mới được thể hiện trong hành vi hằng ngày</h2><div class="timeline" style="grid-template-columns:repeat(4,1fr)"><div class="t"><div class="ball">1</div><h3>Trước khi giao</h3><p>Làm rõ mục tiêu, đầu ra, trách nhiệm, hạn và mức khó.</p></div><div class="t"><div class="ball">2</div><h3>Trong khi làm</h3><p>Cập nhật tiến độ, phản ánh vướng mắc, chủ động phối hợp.</p></div><div class="t"><div class="ball">3</div><h3>Khi hoàn thành</h3><p>Nộp sản phẩm và bằng chứng kết quả.</p></div><div class="t"><div class="ball">4</div><h3>Khi đánh giá</h3><p>Dựa trên dữ liệu và kết quả thực tế.</p></div></div><div class="quote">Không phải làm thêm một thủ tục. Đó là làm rõ trách nhiệm, minh bạch tiến độ và cùng chịu trách nhiệm về Mục tiêu chung.</div></section><section class="slide dark pafExactClosing"><div style="height:100%;display:grid;place-items:center;text-align:center"><div><div class="kicker">Thông điệp kết thúc</div><h1>TẤT CẢ VÌ<br/>MỤC TIÊU CHUNG</h1><p class="lead" style="margin:0 auto;color:#dce7ed">Mỗi mục tiêu được chuyển thành công việc rõ ràng. Mỗi công việc gắn với trách nhiệm cụ thể. Mỗi kết quả được ghi nhận bằng dữ liệu.</p><div class="closing-motto" style="margin-top:28px;font-size:28px;font-weight:950;color:#F1BD59">Mục tiêu chung · Trách nhiệm rõ · Dữ liệu thật · Kết quả thực</div></div></div></section></main>
 <div class="controls"><button id="prev">← Trước</button><div class="progress"><i id="bar"></i></div><span class="counter" id="counter"></span><button id="next">Tiếp →</button></div>
-<script>const slides=[...document.querySelectorAll('.slide')];const nav=document.querySelector('.menu');nav.innerHTML='<h4>Danh mục trình chiếu</h4>';slides.forEach((s,i)=>{const a=document.createElement('a');const h=s.querySelector('h1,h2');a.textContent=(i+1)+'. '+(h?h.textContent.trim():'Nội dung');a.dataset.go=i;nav.appendChild(a)});const links=[...nav.querySelectorAll('a')];let current=0;let delegateStep=0;const delegateSlide=slides[8];function updateDelegate(){delegateSlide.dataset.step=delegateStep;const l=document.getElementById("delegate-step-label");if(l)l.textContent=["80% nhiệm vụ cốt lõi","80% nhiệm vụ cốt lõi","10% chỉ đạo điều hành","10% nhiệm vụ trọng điểm"][delegateStep];}function forward(){if(current===8&&delegateStep<3){delegateStep++;updateDelegate();return;}show(current+1)}function backward(){if(current===8&&delegateStep>1){delegateStep--;updateDelegate();return;}show(current-1)}function show(n){current=Math.max(0,Math.min(slides.length-1,n));if(current===8){delegateStep=1;updateDelegate();}slides.forEach((s,i)=>s.classList.toggle('active',i===current));links.forEach(a=>a.classList.toggle('active',+a.dataset.go===current));document.querySelector('.progress i').style.width=((current+1)/slides.length*100)+'%';document.getElementById('counter').textContent=(current+1)+' / '+slides.length;links[current]?.scrollIntoView({block:'nearest'});}links.forEach(a=>a.onclick=()=>show(+a.dataset.go));document.getElementById('prev').onclick=backward;document.getElementById('next').onclick=forward;document.addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();forward()}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();backward()}});show(0);</script></body></html>
+<script>const slides=[...document.querySelectorAll('.slide')];const nav=document.querySelector('.menu');nav.innerHTML='<h4>Danh mục trình chiếu</h4>';slides.forEach((s,i)=>{const a=document.createElement('a');const h=s.querySelector('h1,h2');a.textContent=(i+1)+'. '+(h?h.textContent.trim():'Nội dung');a.dataset.go=i;nav.appendChild(a)});const links=[...nav.querySelectorAll('a')];let current=0;let delegateStep=0;const delegateSlide=slides[8];function updateDelegate(){delegateSlide.dataset.step=delegateStep;const l=document.getElementById("delegate-step-label");if(l)l.textContent=["80% nhiệm vụ cốt lõi","80% nhiệm vụ cốt lõi","10% chỉ đạo điều hành","10% nhiệm vụ trọng điểm"][delegateStep];}function forward(){if(current===8&&delegateStep<3){delegateStep++;updateDelegate();return;}show(current+1)}function backward(){if(current===8&&delegateStep>1){delegateStep--;updateDelegate();return;}show(current-1)}function show(n){current=Math.max(0,Math.min(slides.length-1,n));if(current===8){delegateStep=1;updateDelegate();}slides.forEach((s,i)=>s.classList.toggle('active',i===current));links.forEach(a=>a.classList.toggle('active',+a.dataset.go===current));document.querySelector('.progress i').style.width=((current+1)/slides.length*100)+'%';document.getElementById('counter').textContent=(current+1)+' / '+slides.length;if(window.innerWidth>1000)links[current]?.scrollIntoView({block:'nearest'});}links.forEach(a=>a.onclick=()=>show(+a.dataset.go));document.getElementById('prev').onclick=backward;document.getElementById('next').onclick=forward;document.addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();forward()}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();backward()}});show(0);</script></body></html>
